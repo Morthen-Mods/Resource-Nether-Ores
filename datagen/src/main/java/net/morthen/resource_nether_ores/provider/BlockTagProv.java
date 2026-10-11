@@ -8,6 +8,7 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 import net.morthen.resource_nether_ores.OreConstants;
+import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 
 import java.util.List;
@@ -33,7 +34,8 @@ public class BlockTagProv extends BlockTagsProvider {
         this.tag(BlockTags.NEEDS_STONE_TOOL)
                 .addAll(List.of(
                         NETHER_COAL_ORE.getResourceKey(), NETHER_IRON_ORE.getResourceKey(),
-                        NETHER_LAPIS_ORE.getResourceKey()));
+                        NETHER_LAPIS_ORE.getResourceKey()
+                ));
 
         this.tag(BlockTags.NEEDS_IRON_TOOL)
                 .addAll(List.of(
@@ -41,16 +43,12 @@ public class BlockTagProv extends BlockTagsProvider {
                         NETHER_DIAMOND_ORE.getResourceKey()
                 ));
 
-        this.tag(create("ore/coal")).add(NETHER_COAL_ORE.getResourceKey());
-        this.tag(BlockTags.COPPER_ORES).add(NETHER_COPPER_ORE.getResourceKey());
-        this.tag(BlockTags.IRON_ORES).add(NETHER_IRON_ORE.getResourceKey());
-        this.tag(create("ore/diamond")).add(NETHER_DIAMOND_ORE.getResourceKey());
-        this.tag(create("ore/emerald")).add(NETHER_EMERALD_ORE.getResourceKey());
-        this.tag(create("ore/lapis")).add(NETHER_LAPIS_ORE.getResourceKey());
-        this.tag(create("ore/redstone")).add(NETHER_REDSTONE_ORE.getResourceKey());
-    }
-
-    private TagKey<Block> create(String path) {
-        return TagKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath("c", path));
+        this.tag(Tags.Blocks.ORES_COAL).add(NETHER_COAL_ORE.getResourceKey());
+        this.tag(Tags.Blocks.ORES_COPPER).add(NETHER_COPPER_ORE.getResourceKey());
+        this.tag(Tags.Blocks.ORES_IRON).add(NETHER_IRON_ORE.getResourceKey());
+        this.tag(Tags.Blocks.ORES_DIAMOND).add(NETHER_DIAMOND_ORE.getResourceKey());
+        this.tag(Tags.Blocks.ORES_EMERALD).add(NETHER_EMERALD_ORE.getResourceKey());
+        this.tag(Tags.Blocks.ORES_LAPIS).add(NETHER_LAPIS_ORE.getResourceKey());
+        this.tag(Tags.Blocks.ORES_REDSTONE).add(NETHER_REDSTONE_ORE.getResourceKey());
     }
 }

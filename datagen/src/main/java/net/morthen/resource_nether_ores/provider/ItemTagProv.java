@@ -9,8 +9,8 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.morthen.resource_nether_ores.OreConstants;
-import net.morthen.resource_nether_ores.tags.OreTags;
 import net.morthen.resourcelibrary.registration.RegistryObject;
+import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.ItemTagsProvider;
 
 import java.util.List;
@@ -27,18 +27,18 @@ public class ItemTagProv extends ItemTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
-        this.addAll(OreTags.ORES,
+        this.addAll(Tags.Items.ORES,
                 List.of(NETHER_COAL_ORE, NETHER_COPPER_ORE, NETHER_DIAMOND_ORE,
                         NETHER_EMERALD_ORE, NETHER_IRON_ORE, NETHER_LAPIS_ORE,
                         NETHER_REDSTONE_ORE));
 
-        this.add(OreTags.COAL_ORE, NETHER_COAL_ORE);
-        this.add(OreTags.COPPER_ORE, NETHER_COPPER_ORE);
-        this.add(OreTags.IRON_ORE, NETHER_IRON_ORE);
-        this.add(OreTags.DIAMOND_ORE, NETHER_DIAMOND_ORE);
-        this.add(OreTags.EMERALD_ORE, NETHER_EMERALD_ORE);
-        this.add(OreTags.LAPIS_ORE, NETHER_LAPIS_ORE);
-        this.add(OreTags.REDSTONE_ORE, NETHER_REDSTONE_ORE);
+        this.add(Tags.Items.ORES_COAL, NETHER_COAL_ORE);
+        this.add(Tags.Items.ORES_COPPER, NETHER_COPPER_ORE);
+        this.add(Tags.Items.ORES_IRON, NETHER_IRON_ORE);
+        this.add(Tags.Items.ORES_DIAMOND, NETHER_DIAMOND_ORE);
+        this.add(Tags.Items.ORES_EMERALD, NETHER_EMERALD_ORE);
+        this.add(Tags.Items.ORES_LAPIS, NETHER_LAPIS_ORE);
+        this.add(Tags.Items.ORES_REDSTONE, NETHER_REDSTONE_ORE);
     }
 
     private void add(TagKey<Item> key, RegistryObject<Block> block) {
