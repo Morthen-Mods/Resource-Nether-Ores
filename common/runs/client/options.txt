@@ -1,4 +1,4 @@
-version:4903
+version:5023
 ao:true
 biomeBlendRadius:2
 chunkSectionFadeInTime:0.75
@@ -13,13 +13,15 @@ fovEffectScale:1.0
 darknessEffectScale:1.0
 glintSpeed:0.5
 glintStrength:0.75
-preferredGraphicsBackend:"default"
+preferredGraphicsBackend:"opengl"
 graphicsPreset:"fancy"
 prioritizeChunkUpdates:1
 fullscreen:false
 exclusiveFullscreen:false
+macFullscreenMenuVisibility:false
 gamma:0.5
 guiScale:0
+debugGuiScale:0
 maxAnisotropyBit:1
 textureFiltering:1
 maxFps:120
@@ -64,7 +66,7 @@ damageTiltStrength:1.0
 highContrast:false
 highContrastBlockOutline:false
 narratorHotkey:true
-resourcePacks:["vanilla","mod_resources"]
+resourcePacks:["mod_resources","vanilla"]
 incompatibleResourcePacks:[]
 lastServer:
 lang:en_us
@@ -89,8 +91,9 @@ mainHand:"right"
 attackIndicator:1
 tutorialStep:none
 mouseWheelSensitivity:1.0
-rawMouseInput:true
 allowCursorChanges:true
+quitShortcuts:true
+ctrlClickEmulatesRightClick:false
 glDebugVerbosity:1
 skipMultiplayerWarning:false
 hideMatchedNames:true
@@ -170,6 +173,7 @@ key_key.debug.profilingChart:key.keyboard.1
 key_key.debug.fpsCharts:key.keyboard.2
 key_key.debug.networkCharts:key.keyboard.3
 key_key.debug.lightmapTexture:key.keyboard.4
+key_key.debug.improvedTransparency:key.keyboard.x
 soundCategory_master:0.25662251655629137
 soundCategory_music:0.20774647887323944
 soundCategory_record:1.0

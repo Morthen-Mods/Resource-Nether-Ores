@@ -6,7 +6,7 @@ import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
-import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.placement.HeightRangePlacement;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.placement.PlacementModifier;
@@ -17,24 +17,24 @@ import java.util.List;
 
 public class OrePlacedFeatures {
 
-    public static final ResourceKey<PlacedFeature> NETHER_COAL_ORE_FEATURE = createKey("nether_coal_ore_feature");
-    public static final ResourceKey<PlacedFeature> NETHER_COPPER_ORE_FEATURE = createKey("nether_copper_ore_feature");
-    public static final ResourceKey<PlacedFeature> NETHER_DIAMOND_ORE_FEATURE = createKey("nether_diamond_ore_feature");
-    public static final ResourceKey<PlacedFeature> NETHER_EMERALD_ORE_FEATURE = createKey("nether_emerald_ore_feature");
-    public static final ResourceKey<PlacedFeature> NETHER_IRON_ORE_FEATURE = createKey("nether_iron_ore_feature");
-    public static final ResourceKey<PlacedFeature> NETHER_LAPIS_ORE_FEATURE = createKey("nether_lapis_ore_feature");
-    public static final ResourceKey<PlacedFeature> NETHER_REDSTONE_ORE_FEATURE = createKey("nether_redstone_ore_feature");
+    public static final ResourceKey<PlacedFeature> NETHER_COAL_ORE_PLACED_FEATURE = createKey("nether_coal_ore_feature");
+    public static final ResourceKey<PlacedFeature> NETHER_COPPER_ORE_PLACED_FEATURE = createKey("nether_copper_ore_feature");
+    public static final ResourceKey<PlacedFeature> NETHER_DIAMOND_ORE_PLACED_FEATURE = createKey("nether_diamond_ore_feature");
+    public static final ResourceKey<PlacedFeature> NETHER_EMERALD_ORE_PLACED_FEATURE = createKey("nether_emerald_ore_feature");
+    public static final ResourceKey<PlacedFeature> NETHER_IRON_ORE_PLACED_FEATURE = createKey("nether_iron_ore_feature");
+    public static final ResourceKey<PlacedFeature> NETHER_LAPIS_ORE_PLACED_FEATURE = createKey("nether_lapis_ore_feature");
+    public static final ResourceKey<PlacedFeature> NETHER_REDSTONE_ORE_PLACED_FEATURE = createKey("nether_redstone_ore_feature");
 
     public static void bootstrap(BootstrapContext<PlacedFeature> context) {
-        var lookup = context.lookup(Registries.CONFIGURED_FEATURE);
+        var lookup = context.lookup(Registries.FEATURE);
 
-        register(context, NETHER_COAL_ORE_FEATURE, lookup.getOrThrow(OreConfiguredFeatures.NETHER_COAL_ORE_KEY), common(20, 25, 115));
-        register(context, NETHER_COPPER_ORE_FEATURE, lookup.getOrThrow(OreConfiguredFeatures.NETHER_COPPER_ORE_KEY), common(6, 25, 105));
-        register(context, NETHER_DIAMOND_ORE_FEATURE, lookup.getOrThrow(OreConfiguredFeatures.NETHER_DIAMOND_ORE_KEY), common(3, 90, 125));
-        register(context, NETHER_EMERALD_ORE_FEATURE, lookup.getOrThrow(OreConfiguredFeatures.NETHER_EMERALD_ORE_KEY), common(4, 25, 55));
-        register(context, NETHER_IRON_ORE_FEATURE, lookup.getOrThrow(OreConfiguredFeatures.NETHER_IRON_ORE_KEY), common(40, 40, 110));
-        register(context, NETHER_LAPIS_ORE_FEATURE, lookup.getOrThrow(OreConfiguredFeatures.NETHER_LAPIS_ORE_KEY), common(2, 30, 60));
-        register(context, NETHER_REDSTONE_ORE_FEATURE, lookup.getOrThrow(OreConfiguredFeatures.NETHER_REDSTONE_ORE_KEY), common(8, 80, 115));
+        register(context, NETHER_COAL_ORE_PLACED_FEATURE, lookup.getOrThrow(OreFeatures.NETHER_COAL_ORE_FEATURE), common(20, 25, 115));
+        register(context, NETHER_COPPER_ORE_PLACED_FEATURE, lookup.getOrThrow(OreFeatures.NETHER_COPPER_ORE_FEATURE), common(6, 25, 105));
+        register(context, NETHER_DIAMOND_ORE_PLACED_FEATURE, lookup.getOrThrow(OreFeatures.NETHER_DIAMOND_ORE_FEATURE), common(3, 90, 125));
+        register(context, NETHER_EMERALD_ORE_PLACED_FEATURE, lookup.getOrThrow(OreFeatures.NETHER_EMERALD_ORE_FEATURE), common(4, 25, 55));
+        register(context, NETHER_IRON_ORE_PLACED_FEATURE, lookup.getOrThrow(OreFeatures.NETHER_IRON_ORE_FEATURE), common(40, 40, 110));
+        register(context, NETHER_LAPIS_ORE_PLACED_FEATURE, lookup.getOrThrow(OreFeatures.NETHER_LAPIS_ORE_FEATURE), common(2, 30, 60));
+        register(context, NETHER_REDSTONE_ORE_PLACED_FEATURE, lookup.getOrThrow(OreFeatures.NETHER_REDSTONE_ORE_FEATURE), common(8, 80, 115));
     }
 
     private static List<PlacementModifier> common(int count, int min, int max) {
@@ -46,7 +46,7 @@ public class OrePlacedFeatures {
     }
 
     private static void register(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key,
-                                 Holder<ConfiguredFeature<?, ?>> config, List<PlacementModifier> modifer) {
+                                 Holder<Feature> config, List<PlacementModifier> modifer) {
         context.register(key, new PlacedFeature(config, List.copyOf(modifer)));
     }
 }

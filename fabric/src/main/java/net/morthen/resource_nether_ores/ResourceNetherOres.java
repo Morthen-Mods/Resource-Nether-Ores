@@ -13,13 +13,13 @@ public class ResourceNetherOres implements ModInitializer {
     public void onInitialize() {
         OreConstants.init();
 
-        addFeature(OrePlacedFeatures.NETHER_COAL_ORE_FEATURE);
-        addFeature(OrePlacedFeatures.NETHER_COPPER_ORE_FEATURE);
-        addFeature(OrePlacedFeatures.NETHER_IRON_ORE_FEATURE);
-        addFeature(OrePlacedFeatures.NETHER_DIAMOND_ORE_FEATURE);
-        addFeature(OrePlacedFeatures.NETHER_EMERALD_ORE_FEATURE);
-        addFeature(OrePlacedFeatures.NETHER_LAPIS_ORE_FEATURE);
-        addFeature(OrePlacedFeatures.NETHER_REDSTONE_ORE_FEATURE);
+        addFeature(OrePlacedFeatures.NETHER_COAL_ORE_PLACED_FEATURE);
+        addFeature(OrePlacedFeatures.NETHER_COPPER_ORE_PLACED_FEATURE);
+        addFeature(OrePlacedFeatures.NETHER_IRON_ORE_PLACED_FEATURE);
+        addFeature(OrePlacedFeatures.NETHER_DIAMOND_ORE_PLACED_FEATURE);
+        addFeature(OrePlacedFeatures.NETHER_EMERALD_ORE_PLACED_FEATURE);
+        addFeature(OrePlacedFeatures.NETHER_LAPIS_ORE_PLACED_FEATURE);
+        addFeature(OrePlacedFeatures.NETHER_REDSTONE_ORE_PLACED_FEATURE);
     }
 
     static void addFeature(ResourceKey<PlacedFeature> key) {

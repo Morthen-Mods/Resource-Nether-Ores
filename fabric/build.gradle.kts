@@ -25,6 +25,6 @@ multiloader {
 
 val resourcelibrary = providers.gradleProperty("resourcelibrary")
 dependencies {
-    implementation("com.terraformersmc:modmenu:20.0.1")
+    implementation("com.terraformersmc:modmenu:21.0.0")
     implementation("net.morthen:resourcelibrary-fabric:${ resourcelibrary.get() }")
 }

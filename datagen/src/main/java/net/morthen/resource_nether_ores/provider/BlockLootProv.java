@@ -1,29 +1,29 @@
 package net.morthen.resource_nether_ores.provider;
 
-import net.minecraft.core.HolderLookup;
-import net.minecraft.data.PackOutput;
+import net.minecraft.core.registries.SingleRegistryBootstrap;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableProvider;
+import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.morthen.resource_nether_ores.registries.BlockRegistry;
 import net.morthen.resourcelibrary.registration.RegistryObject;
 
 import java.util.List;
 import java.util.Set;
-import java.util.concurrent.CompletableFuture;
 
 public class BlockLootProv extends BlockLootSubProvider {
 
-    public static LootTableProvider create(PackOutput output, CompletableFuture<HolderLookup.Provider> provider) {
-        return new LootTableProvider(output, Set.of(), List.of(
-                new LootTableProvider.SubProviderEntry(BlockLootProv::new, LootContextParamSets.BLOCK)), provider);
+    public static SingleRegistryBootstrap<LootTable> create() {
+        return new LootTableProvider(Set.of(), List.of(
+                new LootTableProvider.SubProviderEntry(BlockLootProv::new, LootContextParamSets.BLOCK)));
     }
 
-    protected BlockLootProv(HolderLookup.Provider provider) {
-        super(Set.of(), FeatureFlags.REGISTRY.allFlags(), provider);
+    protected BlockLootProv(LootTableSubProvider.Context context) {
+        super(Set.of(), FeatureFlags.REGISTRY.allFlags(), context);
     }
 
     @Override
